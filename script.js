@@ -133,3 +133,16 @@ if (slides.length) {
 
   startAuto();
 }
+
+// Custom quote button
+const customBtn = document.getElementById("customQuoteBtn");
+
+if (customBtn) {
+  const phone = "9477XXXXXXX"; // YOUR NUMBER
+  const msg = encodeURIComponent(
+    "Hi CoreNode, I need a custom website package. Can we discuss pricing?"
+  );
+
+  customBtn.href = `https://wa.me/${phone}?text=${msg}`;
+  customBtn.target = "_blank";
+}
