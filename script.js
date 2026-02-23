@@ -64,3 +64,72 @@ if (menuBtn && navLinksEl) {
 // Auto year in footer
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Banner slider (with dots)
+const slides = document.querySelectorAll(".slide");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+const dotsWrap = document.getElementById("dots");
+
+let index = 0;
+let timer = null;
+
+function showSlide(i){
+  slides.forEach(s => s.classList.remove("active"));
+  slides[i].classList.add("active");
+
+  if (dotsWrap) {
+    dotsWrap.querySelectorAll(".dot").forEach((d, di) => {
+      d.classList.toggle("active", di === i);
+    });
+  }
+}
+
+function startAuto(){
+  stopAuto();
+  timer = setInterval(() => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }, 4500);
+}
+
+function stopAuto(){
+  if (timer) clearInterval(timer);
+}
+
+if (slides.length) {
+  // Build dots
+  if (dotsWrap) {
+    dotsWrap.innerHTML = "";
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className = "dot" + (i === 0 ? " active" : "");
+      dot.type = "button";
+      dot.addEventListener("click", () => {
+        index = i;
+        showSlide(index);
+        startAuto();
+      });
+      dotsWrap.appendChild(dot);
+    });
+  }
+
+  // Buttons
+  if (next) {
+    next.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+      startAuto();
+    });
+  }
+
+  if (prev) {
+    prev.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+      startAuto();
+    });
+  }
+
+  startAuto();
+}
