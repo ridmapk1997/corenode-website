@@ -17,6 +17,8 @@
 
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="container inner">
@@ -487,7 +489,7 @@
       </div>
 
       <!-- Right: form -->
-      <form class="card contact-form" action="https://formspree.io/f/mdaleoaw" method="POST">
+      <form class="card contact-form" id="contactForm" action="https://formspree.io/f/mdaleoaw" method="POST">
 
         <!-- Optional: email subject -->
         <input type="hidden" name="_subject" value="New CoreNode website inquiry">
@@ -508,7 +510,9 @@
           <textarea name="message" rows="5" placeholder="Tell us what you need..." required></textarea>
         </div>
 
-        <button class="btn primary" type="submit">Send Message</button>
+        <button class="btn primary" id="sendBtn" type="submit">Send Message</button>
+        <p class="tiny muted" id="formStatus"></p>
+
         <p class="tiny muted">Submitting will send your message to CoreNode.</p>
       </form>
     </div>
@@ -540,6 +544,16 @@
   <a class="float-btn call" href="tel:+94763064517" aria-label="Call CoreNode">
     📞
   </a>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal" id="successModal">
+  <div class="modal-box">
+    <div class="modal-icon">✅</div>
+    <h3>Message Sent Successfully!</h3>
+    <p>Thank you for contacting CoreNode. We will get back to you soon.</p>
+    <button class="btn primary" id="closeModal">Close</button>
+  </div>
 </div>
 
 <!-- Back to Top button -->

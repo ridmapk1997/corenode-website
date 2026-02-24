@@ -167,3 +167,69 @@ if (backTop) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
+
+// Contact form AJAX submit (stay on page)
+const contactForm = document.getElementById("contactForm");
+const sendBtn = document.getElementById("sendBtn");
+const formStatus = document.getElementById("formStatus");
+
+if (contactForm && sendBtn && formStatus) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    sendBtn.disabled = true;
+    sendBtn.textContent = "Sending...";
+    formStatus.textContent = "";
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        contactForm.reset();
+        document.getElementById("successModal").classList.add("show");
+      } else {
+        formStatus.textContent = "⚠️ Something went wrong. Please try again.";
+      }
+    } catch (err) {
+      formStatus.textContent = "⚠️ Network error. Please check your connection.";
+    } finally {
+      sendBtn.disabled = false;
+      sendBtn.textContent = "Send Message";
+    }
+  });
+}
+
+// Close modal
+const closeModal = document.getElementById("closeModal");
+const successModal = document.getElementById("successModal");
+
+if (closeModal && successModal) {
+  closeModal.addEventListener("click", () => {
+    successModal.classList.remove("show");
+  });
+
+  // close when clicking outside box
+  successModal.addEventListener("click", (e) => {
+    if (e.target === successModal) {
+      successModal.classList.remove("show");
+    }
+  });
+}
+
+// Scroll progress
+const scrollProgress = document.getElementById("scrollProgress");
+
+if (scrollProgress) {
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight =
+      document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    const percent = (scrollTop / scrollHeight) * 100;
+    scrollProgress.style.width = percent + "%";
+  });
+}
