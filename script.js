@@ -146,3 +146,11 @@ if (customBtn) {
   customBtn.href = `https://wa.me/${phone}?text=${msg}`;
   customBtn.target = "_blank";
 }
+
+// Floating WhatsApp button
+const floatWhatsApp = document.getElementById("floatWhatsApp");
+if (floatWhatsApp) {
+  const phone = "94763064517"; // your number (no +)
+  const msg = encodeURIComponent("Hi CoreNode! I'm interested in a website. Can we discuss?");
+  floatWhatsApp.href = `https://wa.me/${phone}?text=${msg}`;
+}
