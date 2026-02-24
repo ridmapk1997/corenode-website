@@ -893,3 +893,34 @@ body::after{
 .float-btn.call{
   opacity: 0.9;
 }
+
+/* ---------- Back to top ---------- */
+.backtop{
+  position: fixed;
+  right: 18px;
+  bottom: 140px; /* above floating buttons */
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.55);
+  color: white;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+.backtop.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.backtop:hover{
+  transform: translateY(-2px);
+  border-color: rgba(168,85,247,0.45);
+}

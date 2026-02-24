@@ -154,3 +154,16 @@ if (floatWhatsApp) {
   const msg = encodeURIComponent("Hi CoreNode! I'm interested in a website. Can we discuss?");
   floatWhatsApp.href = `https://wa.me/${phone}?text=${msg}`;
 }
+
+// Back to top button
+const backTop = document.getElementById("backTop");
+
+if (backTop) {
+  window.addEventListener("scroll", () => {
+    backTop.classList.toggle("show", window.scrollY > 500);
+  });
+
+  backTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
