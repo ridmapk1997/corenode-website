@@ -1,5 +1,5 @@
 // Fade-in on scroll
-const animated = document.querySelectorAll(".reveal");
+const animated = document.querySelectorAll(".reveal, .stagger");
 
 const observer = new IntersectionObserver(
   (entries) => {
