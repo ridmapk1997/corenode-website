@@ -310,6 +310,16 @@ h1,h2,h3{ margin: 0; }
   gap: 8px;
 }
 
+.contact-item{
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.contact-item:first-of-type{
+  border-top: none;
+  padding-top: 0;
+}
+
 .label{
   font-size: 12px;
   letter-spacing: 0.4px;
@@ -1116,4 +1126,90 @@ body::before{
   color: rgba(255,255,255,0.85);
   font-weight: 800;
   font-size: 13px;
+}
+
+/* ---------- Contact polish ---------- */
+.contact-grid .card{
+  padding: 24px;
+}
+
+.contact-item .label{
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea{
+  border-radius: 16px;
+  padding: 13px 14px;
+}
+
+.contact-form .btn.primary{
+  margin-top: 6px;
+}
+
+/* ---------- About premium ---------- */
+.about-grid{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.about-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(168,85,247,0.35);
+  background: rgba(168,85,247,0.12);
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 14px;
+}
+
+.about-left h2{
+  font-size: clamp(22px, 3.2vw, 34px);
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.about-chips{
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip2{
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  font-weight: 800;
+  font-size: 13px;
+  color: rgba(255,255,255,0.88);
+}
+
+.about-list{
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  gap: 10px;
+  color: rgba(255,255,255,0.86);
+}
+
+.founder-card{
+  margin-top: 14px;
+}
+
+@media (max-width: 900px){
+  .about-grid{
+    grid-template-columns: 1fr;
+  }
 }
