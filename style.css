@@ -1213,3 +1213,37 @@ body::before{
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Mobile CTA bar ---------- */
+.mobile-cta{
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: none;
+  gap: 10px;
+  z-index: 2500;
+}
+
+.cta-btn{
+  flex: 1;
+  text-align: center;
+  padding: 14px 14px;
+  border-radius: 18px;
+  text-decoration: none;
+  font-weight: 900;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+  color: white;
+}
+
+.cta-wa{
+  background: linear-gradient(135deg, var(--purple2), var(--purple));
+  border: none;
+  box-shadow: 0 18px 55px rgba(168,85,247,0.28);
+}
+
+@media (max-width: 900px){
+  .mobile-cta{ display: flex; }
+}

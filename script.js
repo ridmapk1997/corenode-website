@@ -233,3 +233,11 @@ if (scrollProgress) {
     scrollProgress.style.width = percent + "%";
   });
 }
+
+// Mobile CTA WhatsApp
+const mobileWa = document.getElementById("mobileWa");
+if (mobileWa) {
+  const phone = "94763064517"; // no +
+  const msg = encodeURIComponent("Hi CoreNode! I need a website. Can we discuss?");
+  mobileWa.href = `https://wa.me/${phone}?text=${msg}`;
+}
