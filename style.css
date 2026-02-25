@@ -1087,3 +1087,33 @@ body::before{
   left: 120%;
   opacity: 1;
 }
+
+/* ---------- Trusted strip ---------- */
+.trusted{
+  padding: 18px 0 50px;
+}
+
+.trusted-title{
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.trusted-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.trusted-chip{
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.85);
+  font-weight: 800;
+  font-size: 13px;
+}
